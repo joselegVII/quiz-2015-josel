@@ -1,0 +1,24 @@
+/*** Hoja de estilos para smartphones (pantallas < 480 px) ***/
+
+body {
+	background: #333;	/*Pone un color de fondo más oscuro */
+}
+
+/*Se añade contenido después de contenedor principal  */
+#page-wrap:after {
+	content: "Smartphone Layout"; 
+}
+
+/* No muestra el contenido de la etiqueta span dentro de h2, ni de h3 dentro de section */
+h2 span, section h3 {
+	display: none;
+}
+
+/* Tamaño de fuente más grande */
+body {
+	font-size: xx-large;
+}
+
+footer, input {
+	font-size: large;
+}

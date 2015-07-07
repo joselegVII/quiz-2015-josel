@@ -1,8 +1,39 @@
+/*** Hoja de estilos básica: se aplica siempre ***/
+
+/** Se aplica a todo **/
+/* CSS reset */
+* {	
+	margin: 0; 
+	padding: 0; 
+}
+/* body */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	font: 16px Georgia, serif; 
+}
+/* id #page-wrap (contenedor principal) */
+#page-wrap {
+	margin: 2% auto; 
+	color: white;
+}
+/* clase main desdendiente de contenedor principal */
+#page-wrap > .main {
+	border: 1px solid #999; 
+	padding: 1%; 
+	margin-bottom: 1px; 
+	color: black;
 }
 
-a {
-  color: #00B7FF;
+/* otros */
+header, nav, section, footer {
+	background: #eee; 	/*Color del fondo (contenido) */
+	text-align: center;	/*Se alinea el texto en el centro */
 }
+
+nav span {
+	margin: 0px 10px 0px 0px;	/*Margen a la derecha para separar elementos del menú*/
+}
+
+section > div {
+	padding: 20px;	/* Se deja un margen interno para albergar el contenido de las vistas */
+}
+
