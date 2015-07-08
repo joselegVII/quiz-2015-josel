@@ -10,7 +10,7 @@ body {
 }
 
 /* No muestra el contenido de la etiqueta span dentro de h2, ni de h3 dentro de section */
-h2 span, section h3 {
+h2 span, section h3, footer span {
 	display: none;
 }
 
