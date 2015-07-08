@@ -10,12 +10,12 @@
 body {
 	font: 16px Georgia, serif; 
 }
-/* id #page-wrap (contenedor principal) */
+/* layout - id #page-wrap (contenedor principal) */
 #page-wrap {
 	margin: 2% auto; 
 	color: white;
 }
-/* clase main desdendiente de contenedor principal */
+/* layout - clase main desdendiente de contenedor principal */
 #page-wrap > .main {
 	border: 1px solid #999; 
 	padding: 1%; 
@@ -23,7 +23,7 @@ body {
 	color: black;
 }
 
-/* otros */
+/* layout - otros */
 header, nav, section, footer {
 	background: #eee; 	/*Color del fondo (contenido) */
 	text-align: center;	/*Se alinea el texto en el centro */
@@ -35,5 +35,11 @@ nav span {
 
 section > div {
 	padding: 20px;	/* Se deja un margen interno para albergar el contenido de las vistas */
+}
+
+/* Author */
+img.author {
+	width:  60px;
+	height: 90px;
 }
 
