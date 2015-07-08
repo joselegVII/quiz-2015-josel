@@ -8,6 +8,10 @@ var quizController = require('../controllers/quiz_controller');
 router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz' });
 });
+// GET author
+router.get('/author', function(req, res) {
+  res.render('author', {});
+});
 
 // GET question & GET answer
 router.get('/quizes/question', quizController.question);
