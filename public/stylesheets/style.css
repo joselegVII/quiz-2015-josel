@@ -37,6 +37,21 @@ section > div {
 	padding: 20px;	/* Se deja un margen interno para albergar el contenido de las vistas */
 }
 
+table.listadoCentrado {
+	width:  100%;
+/*	border-style: solid;
+	border-color: black;	*/
+}
+table.listadoCentrado td {
+	text-align: center;	
+}
+
+.resultadoBusq{
+	margin: 10px 5px 10px;
+/*	margin-top: 100px;5px;100px;
+	margin-bottom: 100px;5px;100px;*/
+}
+
 /* Author */
 img.author {
 	width:  60px;
@@ -46,5 +61,12 @@ img.author {
 /* Versión */
 .version {
 	font-size: 70%;
+}
+
+/*** Imágenes ***/
+/* Miniaturas */
+img.imgMiniatura {
+	width:  15px;
+	height: 15px;
 }
 

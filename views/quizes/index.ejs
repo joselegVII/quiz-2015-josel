@@ -1,5 +1,15 @@
-  <table>
+<h3>Listado de preguntas:</h3>
+
+<form method="get" action="/quizes" enctype="application/x-www-form-urlencoded" id="formBusq">        
+  Búsqueda de preguntas: 
+  <input type="text" name="search" title="Introduce aquí el texto de búsqueda" placeholder="Texto de búsqueda" autocomplete="on" required />
+  <button id="botBuscar" type="submit">
+  <img class="imgMiniatura" src="/images/IMG_lupa.png" /> Buscar
+	</button> 
+</form>
+
+<table class="listadoCentrado">
   <% var i; for (i=0; i < quizes.length; i++) { %>        
      <tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr> 
   <% } %>
-  </table>
+</table>
