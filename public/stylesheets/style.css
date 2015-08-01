@@ -37,6 +37,12 @@ section > div {
 	padding: 20px;	/* Se deja un margen interno para albergar el contenido de las vistas */
 }
 
+/*** Para mostrat errores ***/
+#ErrorMsgs {
+	color: #f61; 
+	font-size: smaler
+}
+
 table.listadoCentrado {
 	width:  100%;
 /*	border-style: solid;
