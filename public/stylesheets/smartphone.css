@@ -10,7 +10,7 @@ body {
 }
 
 /* No muestra el contenido de la etiqueta span dentro de h2, ni de h3 dentro de section */
-h2 span, section h3, footer span {
+h2 span, section h3, footer span, label.rem {
 	display: none;
 }
 
@@ -18,7 +18,12 @@ h2 span, section h3, footer span {
 body {
 	font-size: xx-large;
 }
-
-footer, input {
+input, button {
+	font-size: x-large;
+}
+footer {
 	font-size: large;
 }
+body             { font-size: xx-large; }
+input, button    { font-size: x-large; }
+footer           { font-size: large; }
