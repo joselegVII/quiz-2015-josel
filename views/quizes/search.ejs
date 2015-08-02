@@ -2,11 +2,8 @@
 <div id="resultBusq" class="resultadoBusq">
 <p>Término buscado: "<%= search %>" (<%= quizes.length %> resultado/s). </p>
 
-<table class="listadoCentrado">
-  <% var i; for (i=0; i < quizes.length; i++) { %>        
-     <tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr> 
-  <% } %>
-</table>
+  <% include _list.ejs %>
+
 </div>
 
 <a href="/quizes"><button type="button">Volver a todas las preguntas</button></a>
