@@ -44,9 +44,7 @@ section > div {
 }
 
 table.listadoCentrado {
-	width:  100%;
-/*	border-style: solid;
-	border-color: black;	*/
+	margin: auto;
 }
 table.listadoCentrado td {
 	text-align: center;	
@@ -54,8 +52,6 @@ table.listadoCentrado td {
 
 .resultadoBusq{
 	margin: 10px 5px 10px;
-/*	margin-top: 100px;5px;100px;
-	margin-bottom: 100px;5px;100px;*/
 }
 
 /* Author */

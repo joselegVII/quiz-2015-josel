@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
+var methodOverride = require('method-override');
 
 var routes = require('./routes/index');
 
@@ -14,8 +15,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Para la utilización de un marco en la aplicación (vista 'layout.ejs'):
-app.use(partials());
+app.use(methodOverride('_method'));
+app.use(partials());	// Para la utilización de un marco en la aplicación (vista 'layout.ejs')
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(favicon(__dirname + '/public/favicon.ico'));

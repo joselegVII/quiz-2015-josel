@@ -33,9 +33,11 @@
     <% if (errors.length) { %>
       <span id='ErrorMsgs'>
         Corregir errores:<br/>
+        <ul>
         <% for (var i in errors) { %>
-           <span> <%= errors[i].message %> </span><br/>
+           <li> <%= errors[i].message %> </li>
         <% } %>
+        </ul>
       </span>
     <% } %>
     <div> <%- body %> </div>
@@ -46,7 +48,7 @@
     <a href="https://www.github.com/joselegVII/quiz-2015-josel" target="_blanck"><span>Repositorio </span>GitHub<span> del proyecto</span></a>
 	<!-- Introduzco un identificador de la versión, para controlar mejor el despliegue de la 
 	aplicación -->
-    <p class="version">Versión: 0.12</p>
+    <p class="version">Versión: 0.13</p>
   </footer>
 </div>
 </body> 
