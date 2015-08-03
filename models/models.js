@@ -38,13 +38,21 @@ sequelize.sync().then(function() {
   Quiz.count().then(function (count){
     if(count === 0) {   // la tabla se inicializa solo si está vacía
       Quiz.bulkCreate( 
-        [ {pregunta: 'Capital de Italia',   respuesta: 'Roma'},
-          {pregunta: 'Capital de Portugal', respuesta: 'Lisboa'},
-          {pregunta: 'Capital de España', respuesta: 'Madrid'},
-          {pregunta: 'Capital de Puerto Rico', respuesta: 'San Juan'},
-          {pregunta: 'Capital de Eslovenia', respuesta: 'Liubliana'}
+        [ {pregunta: 'Capital de Italia',				respuesta: 'Roma',			tema: 'Humanidades'},
+          {pregunta: 'Capital de Portugal', 		respuesta: 'Lisboa',		tema: 'Humanidades'},
+          {pregunta: 'Capital de España',				respuesta: 'Madrid',		tema: 'Humanidades'},
+          {pregunta: 'Capital de Puerto Rico',	respuesta: 'San Juan',	tema: 'Humanidades'},
+          {pregunta: 'Capital de Eslovenia',		respuesta: 'Liubliana',	tema: 'Humanidades'}
         ]
       ).then(function(){console.log('Base de datos inicializada')});
     };
   });
 });
+
+//Se crea una variable global para guardar el índice temático (revisable en futuras ocasiones):
+exports.indiceTematico = function (){
+	var _temas =['Humanidades','Ocio','Ciencia','Tecnología','Otros'];
+	return {
+		temas: function () { return _temas; }
+	}
+}

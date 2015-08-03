@@ -10,20 +10,22 @@ body {
 }
 
 /* No muestra el contenido de la etiqueta span dentro de h2, ni de h3 dentro de section */
-h2 span, section h3, footer span, label.rem {
+h2 span, section h3, footer span, .rem {
 	display: none;
+}
+
+/* Se muestra el texto para un resultado estrecho */
+.estrecho {
+	display: inherit; !important
 }
 
 /* Tamaño de fuente más grande */
 body {
 	font-size: xx-large;
 }
-input, button {
+input, select, button {
 	font-size: x-large;
 }
 footer {
 	font-size: large;
 }
-body             { font-size: xx-large; }
-input, button    { font-size: x-large; }
-footer           { font-size: large; }

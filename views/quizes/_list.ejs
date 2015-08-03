@@ -1,6 +1,10 @@
 <table class="listadoCentrado">
   <% var i; for (i=0; i < quizes.length; i++) { %>        
 		<tr>
+			<td>
+				<spam class="rem" ><%= quizes[i].tema %></spam>
+				<spam class="estrecho" title="<%= quizes[i].tema %>" ><%= quizes[i].tema.substring(0,2) %></spam>
+			</td>
 			<td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
 			<td><a href="quizes/<%= quizes[i].id %>/edit"><button>editar</button></a></td>
       <td>

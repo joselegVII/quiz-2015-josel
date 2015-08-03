@@ -1,5 +1,7 @@
-<form method="get" action="/quizes/<%= quiz.id %>/answer" enctype="application/x-www-form-urlencoded" id="formPreg">        
-  Pregunta: <%= quiz.pregunta %> <p>
-  <input type="text" name="respuesta" title="Introduce aquí tu respuesta" placeholder="Introduce aquí tu respuesta" autocomplete="off" required />
-  <input type="submit" name="env" value="Enviar">
+<form method="get" action="/quizes/<%= quiz.id %>/answer" enctype="application/x-www-form-urlencoded" id="formPreg">  
+  <p>Pregunta de <strong>"<%= quiz.tema %>"</strong>: <%= quiz.pregunta %> </p>
+  <p>
+  	<input type="text" name="respuesta" title="Introduce aquí tu respuesta" placeholder="Introduce aquí tu respuesta" autocomplete="off" required />
+  	<input type="submit" name="env" value="Enviar">
+   </p>
 </form>
