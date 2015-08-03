@@ -43,6 +43,7 @@ section > div {
 	font-size: smaler
 }
 
+/*** Formato de tablas en los listados ***/
 table.listadoCentrado {
 	margin: auto;
 }
@@ -50,6 +51,12 @@ table.listadoCentrado td {
 	text-align: center;	
 }
 
+/* Se oculta el texto para un resultado estrecho (vista de smartphones, ver hoja smartphone.css) */
+.estrecho {
+	display: none;
+}
+
+/*** Dejamos un margen un poco mayor en el resultado de la búsqueda ***/
 .resultadoBusq{
 	margin: 10px 5px 10px;
 }
