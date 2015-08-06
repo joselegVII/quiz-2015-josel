@@ -4,7 +4,10 @@ var models = require('../models/models.js');
 exports.load = function(req, res, next, quizId) {
   //Se realiza una búsqueda del elemento quizId
   console.log ('Ejecución de función de "autoload", parámetro: ' + quizId);
-  models.Quiz.find(quizId).then(	//Una vez terminada se procesa el resultado
+  models.Quiz.find({
+            where: { id: Number(quizId) },
+            include: [{ model: models.Comment }]
+        }).then(	//Una vez terminada se procesa el resultado
     function(quiz) {
       if (quiz) {									//Se ha encontrado un elemento
         req.quiz = quiz;					//se crea la variable req.quiz con el objeto encontrado

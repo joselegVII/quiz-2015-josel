@@ -1,0 +1,7 @@
+<p>Añadir comentario: </p>
+
+<form method="post" action="/quizes/<%=quizid%>/comments/" enctype="application/x-www-form-urlencoded" id="formCom">      
+  <input type="text" id="comment" name="comment[texto]" title="Introduce aquí el comentario" placeholder="Introduce aquí el comentario" autocomplete="on" /> <br/>
+	<a href="/quizes/<%=quizid%>"><button type="button">Cancelar</button></a>
+  <button type="submit">Enviar</button>
+</form>
