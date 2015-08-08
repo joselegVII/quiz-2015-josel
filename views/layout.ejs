@@ -20,6 +20,21 @@
 <body>
 <div id="page-wrap">
   <header class="main" id="h1">
+    <%if(!session.user){%>
+      <span class="right">
+      	<a href="/login">Identificarse</a>
+      </span>
+    <%}else{%>
+      <span class="right"> 
+        <form method="post" action="/logout?_method=delete">
+	      	<%=session.user.username%> 
+          <button type="submit" onClick="return confirm('¿Realmente quiere salir de la sesión?');">
+            Desconectarse
+          </button>
+        </form>
+      </span>
+    <%}%>
+
     <h2>Quiz<span>: el juego de las preguntas</span></h2>
   </header>
 
@@ -48,7 +63,7 @@
     <a href="https://www.github.com/joselegVII/quiz-2015-josel" target="_blanck"><span>Repositorio </span>GitHub<span> del proyecto</span></a>
 	<!-- Introduzco un identificador de la versión, para controlar mejor el despliegue de la 
 	aplicación -->
-    <p class="version">Versión: 0.15</p>
+    <p class="version">Versión: 0.16</p>
   </footer>
 </div>
 </body> 

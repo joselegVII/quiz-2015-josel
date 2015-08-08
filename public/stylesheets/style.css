@@ -6,6 +6,12 @@
 	margin: 0; 
 	padding: 0; 
 }
+
+/* header */
+.right {
+	float: right;
+}
+
 /* body */
 body {
 	font: 16px Georgia, serif; 
