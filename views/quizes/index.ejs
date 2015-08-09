@@ -10,4 +10,6 @@
 
   <% include _list.ejs %>
 
-<a href="/quizes/new"><button type="button">Crear pregunta</button></a>
+<%if(session.user){%>
+	<a href="/quizes/new"><button type="button">Crear pregunta</button></a>
+<%}%>
