@@ -9,6 +9,23 @@
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
 
 <p><strong>Comentarios:</strong></p>
+<table class="listadoCentrado">
 <%for(index in quiz.Comments){%>
-	<p>- <%=quiz.Comments[index].texto%></p>
+	<%if(quiz.Comments[index].publicado || session.user){%>
+		<tr>
+			<td>
+				<%=quiz.Comments[index].texto%>
+			</td>
+			<%if(session.user && !quiz.Comments[index].publicado){%>
+			<td>
+					<form method="post" action="/quizes/<%= quiz.id %>/comments/<%=quiz.Comments[index].id%>/publish?_method=put">
+						<button type="submit" onClick="return confirm('¿Desea publicar este comentario?');">
+							Publicar
+						</button>
+					</form>
+			</td>
+			<%}%>
+		</tr>
+	<%}%>	
 <%}%>
+</table>

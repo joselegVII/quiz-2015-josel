@@ -3,7 +3,7 @@ var models = require('../models/models.js');
 // Autoload - factoriza el código si ruta incluye :quizId
 exports.load = function(req, res, next, quizId) {
   //Se realiza una búsqueda del elemento quizId
-  console.log ('Ejecución de función de "autoload", parámetro: ' + quizId);
+//  console.log ('Ejecución de función de "autoload", parámetro: ' + quizId);
   models.Quiz.find({
             where: { id: Number(quizId) },
             include: [{ model: models.Comment }]
