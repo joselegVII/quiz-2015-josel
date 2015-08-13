@@ -27,18 +27,18 @@ exports.index = function(req, res) {
 		var search = '%'+(req.query.search || '').trim().replace(/\s/g, "%")+'%';
 		models.Quiz.findAll({where:["lower(pregunta) like ?", search.toLowerCase()],order:'tema, pregunta ASC'})
 		.then(function(quizes){
-			res.render('quizes/search', {quizes: quizes, search : req.query.search.trim(), errors:[]});
+			res.render('quizes/search', {quizes: quizes, search : req.query.search.trim(), errors: (req.session.errors || [])});
 			}).catch(function(error) { next(error);});
 	} else {
   	models.Quiz.findAll({order:'tema ASC'}).then(function(quizes) {
-  	  res.render('quizes/index.ejs', { quizes: quizes, errors:[]});
+  	  res.render('quizes/index.ejs', { quizes: quizes, errors: (req.session.errors || [])});
   		}).catch(function(error) {next(error);})
 	}
 };
 
 // GET /quizes/:id
 exports.show = function(req, res) {
-  res.render('quizes/show', { quiz: req.quiz, errors:[]});
+  res.render('quizes/show', { quiz: req.quiz, errors: (req.session.errors || [])});
 };
 
 // GET /quizes/:id/answer
@@ -47,7 +47,7 @@ exports.answer = function(req, res) {
   if (req.query.respuesta === req.quiz.respuesta) {
     resultado = 'Correcto';
   }
-  res.render('quizes/answer', {quiz: req.quiz, respuesta: resultado, errors:[]});
+  res.render('quizes/answer', {quiz: req.quiz, respuesta: resultado, errors: (req.session.errors || [])});
 };
 
 // GET /quizes/new
@@ -56,7 +56,7 @@ exports.new = function(req, res) {
     {pregunta: "Pregunta", respuesta: "Respuesta", tema: "Humanidades"}
   );
 
-  res.render('quizes/new', {quiz: quiz, indiceTematico: models.indiceTematico().temas(), errors:[]});
+  res.render('quizes/new', {quiz: quiz, indiceTematico: models.indiceTematico().temas(), errors: (req.session.errors || [])});
 };
 
 // POST /quizes/create
@@ -82,7 +82,7 @@ exports.create = function(req, res) {
 exports.edit = function(req, res) {
   var quiz = req.quiz;  // req.quiz: autoload de instancia de quiz
 
-  res.render('quizes/edit', {quiz: quiz, indiceTematico: models.indiceTematico().temas(), errors: []});
+  res.render('quizes/edit', {quiz: quiz, indiceTematico: models.indiceTematico().temas(), errors: (req.session.errors || [])});
 };
 
 // PUT /quizes/:id

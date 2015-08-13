@@ -28,6 +28,49 @@ app.use(cookieParser('Quiz 2015 josel'));
 app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// MW de auto-logout:
+app.use(function(req, res, next) {
+
+	var _tiempoMaxCon = 120000;	// Tiempo de desconexión (en milisegundos) - 2 minutos
+
+	//Primero se controla si hay una sesión activa 
+	if (req.session.user){
+
+		var fechaAct = new Date;
+
+		if (req.session.ultSolHTTP) {	// Existe la variable 'req.session.ultSolHTTP'
+			var fechaUltSolHTTP = new Date(JSON.parse(req.session.ultSolHTTP)); 
+			var difSolHTTPms = fechaAct.getTime()-fechaUltSolHTTP.getTime();	//Diferencia en milisegundos
+			console.log ('Fecha última solicitud HTTP: ' + fechaUltSolHTTP);
+			console.log ('Diferencia (milisegundos): ' + difSolHTTPms);
+			if (difSolHTTPms > _tiempoMaxCon){
+				console.log ('Han transcurrido más de ' + (_tiempoMaxCon/1000) + 
+					' segundos desde la última solicitud HTTP. Se destruye la sesión.');
+				delete req.session.user;
+				delete req.session.ultSolHTTP;
+				req.session.errors = [{"message": 'La sesión ha caducado. '}];
+				res.redirect('/login'); // redirección para login
+			}
+			else{
+				console.log ('No han transcurrido más de ' + (_tiempoMaxCon/1000) + 
+					' segundos desde la última solicitud HTTP.');
+				req.session.ultSolHTTP = JSON.stringify(fechaAct);
+				req.session.errors = [];
+				next();	// Se pasa el control al siguiente MW
+			}
+		}
+		else{	// Si no existe la variable, se crea (si previamente se ha creado una sesión)
+			req.session.ultSolHTTP = JSON.stringify(fechaAct);
+			console.log ('Sesión nueva, fecha: ' + fechaAct);
+			next();	// Se pasa el control al siguiente MW
+		}
+	}
+	else{	// Si no hay sesión activa, se pasa al siguiente MW
+		next();
+	}
+
+});
+
 // Helpers dinamicos:
 app.use(function(req, res, next) {
 

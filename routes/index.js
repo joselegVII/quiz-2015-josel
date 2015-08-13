@@ -8,7 +8,7 @@ var sessionController = require('../controllers/session_controller');
 
 // GET home page
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Quiz', errors:[]});
+  res.render('index', { title: 'Quiz', errors: (req.session.errors || [])});
 });
 
 // Autoload de comandos con :quizId
@@ -22,7 +22,7 @@ router.delete('/logout', sessionController.destroy);	// destruir sesión (en el 
 
 // GET author
 router.get('/author', function(req, res) {
-  res.render('author', {errors:[]});
+  res.render('author', {errors: (req.session.errors || [])});
 });
 
 // Definición de rutas de /quizes
