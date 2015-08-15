@@ -1,0 +1,12 @@
+<h3>Página de estadísticas:</h3>
+
+<ul>
+	<% for (i in statistics) { %>
+		<li>
+			<%= statistics[i].texto %>:	<%= statistics[i].valor %> 
+			<% if (statistics[i].comentario) { %>
+				<%= statistics[i].comentario %> 
+			<% } %>
+		</li>
+	<% } %>
+</ul>
